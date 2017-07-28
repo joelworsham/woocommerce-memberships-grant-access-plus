@@ -1,0 +1,59 @@
+#wcm-gap-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, 0.8);
+  z-index: 1000000;
+
+  .wcm-gap-modal-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: #fff;
+    width: 600px;
+    max-width: 90%;
+    max-height: 90%;
+    padding: 1em;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .wcm-gap-modal-progress {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ddd;
+  }
+
+  .wcm-gap-modal-progress-bar {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+    background-color: #0073AA;
+  }
+
+  .wcm-gap-modal-progress-percentage {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .wcm-gap-modal-finished {
+    display: none;
+    text-align: center;
+  }
+
+  .notice {
+    margin: 0 0 1em 0;
+  }
+
+  .spinner {
+    float: none;
+  }
+}
