@@ -37,7 +37,7 @@ class WCM_GAP_Bootstrapper {
 	 */
 	function __construct() {
 
-		add_action( 'plugins_loaded', array( $this, 'maybe_load' ), 5 );
+		add_action( 'plugins_loaded', array( $this, 'maybe_load' ), 20 );
 	}
 
 	/**
@@ -55,7 +55,7 @@ class WCM_GAP_Bootstrapper {
 		if ( version_compare( $php_version, '5.3.0' ) === - 1 ) {
 
 			$this->notices[] = sprintf(
-				__( 'Minimum PHP version of 5.3.0 required. Current version is %s. Please contact your system administrator to upgrade PHP to its latest version.', 'wcm-gap' ),
+				__( 'Minimum PHP version of 5.3.0 required. Current version is %s. Please contact your system administrator to upgrade PHP to its latest version.', 'woocommerce-memberships-grant-access-plus' ),
 				$php_version
 			);
 		}
@@ -64,10 +64,18 @@ class WCM_GAP_Bootstrapper {
 		if ( version_compare( $wp_version, '4.0.0' ) === - 1 ) {
 
 			$this->notices[] = sprintf(
-				__( 'Minimum WordPress version of 4.0.0 required. Current version is %s. Please contact your system administrator to upgrade WordPress to its latest version.', 'wcm-gap' ),
+				__( 'Minimum WordPress version of 4.0.0 required. Current version is %s. Please contact your system administrator to upgrade WordPress to its latest version.', 'woocommerce-memberships-grant-access-plus' ),
 				$wp_version
 			);
 		}
+
+		// Required plugin
+        if ( !class_exists('WC_Memberships')) {
+	        $this->notices[] = sprintf(
+		        __( 'The plugin WooCommerce Memberships is required.', 'woocommerce-memberships-grant-access-plus' ),
+		        $wp_version
+	        );
+        }
 
 		// Don't load and show errors if incompatible environment.
 		if ( ! empty( $this->notices ) ) {
