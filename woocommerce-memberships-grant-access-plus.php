@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WooCommerce Memberships Grant Access Plus
  * Description: Improves the Grant Access import feature to handle large loads.
- * Version 0.1.0
+ * Version 1.0.0
  * Author: Joel Worsham
  * Author URI: http://joelworsham.com
  * License: GPL2
@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || die();
 
 if ( ! class_exists( 'WCM_GAP' ) ) {
 
-	define( 'WCM_GAP_VERSION', '0.1.0' );
+	define( 'WCM_GAP_VERSION', '1.0.0' );
 	define( 'WCM_GAP_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'WCM_GAP_URI', plugins_url( '', __FILE__ ) );
 
@@ -111,7 +111,6 @@ if ( ! class_exists( 'WCM_GAP' ) ) {
 				),
 				'totalOrders' => WCM_GAP_Tool::get_total_orders(),
 				'post'        => isset( $_GET['post'] ) ? $_GET['post'] : 0,
-				'nonce'       => wp_create_nonce( 'wc-memberships-grant-access-plan_' . isset( $_GET['post'] ) ? $_GET['post'] : '' ),
 			) );
 		}
 	}
